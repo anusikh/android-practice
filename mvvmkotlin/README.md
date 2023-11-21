@@ -1,3 +1,5 @@
+kotlin, mvvm, hilt, retrofit, paging3
+
 - add the dependencies
 - enable internet access in Manifest
 - if using http api, add this to manifest `android:usesCleartextTraffic="true"`
@@ -66,4 +68,3 @@
   onBindingView to handle clicking on item
 - then go to MovieFragment and add the movieAdapter.onMovieClick..., to move from MovieFragment to
   DetailsFragment
-- 
