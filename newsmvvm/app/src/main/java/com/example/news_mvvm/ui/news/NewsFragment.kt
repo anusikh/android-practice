@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.news_mvvm.R
 import com.example.news_mvvm.databinding.FragmentNewsBinding
@@ -32,6 +33,11 @@ class NewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setRecylerView()
+
+        newsAdapter.onNewsClick {
+            val action = NewsFragmentDirections.actionNewsFragmentToDetailsFragment(it)
+            findNavController().navigate(action)
+        }
 
         viewModel.list.observe(viewLifecycleOwner) {
             newsAdapter.submitData(lifecycle, it)

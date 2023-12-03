@@ -11,6 +11,8 @@ import com.example.news_mvvm.databinding.ViewHolderNewsBinding
 
 class NewsPagingAdapter : PagingDataAdapter<Article, NewsPagingAdapter.MyViewHolder>(DIFF_UTIL) {
 
+    var onClick: ((String) -> Unit)? = null
+
     inner class MyViewHolder(val viewDataBinding: ViewHolderNewsBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root)
 
@@ -27,10 +29,19 @@ class NewsPagingAdapter : PagingDataAdapter<Article, NewsPagingAdapter.MyViewHol
         }
     }
 
+    fun onNewsClick(listener: (String) -> Unit) {
+        onClick = listener
+    }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val data = getItem(position)
 
         holder.viewDataBinding.setVariable(BR.article, data)
+        holder.viewDataBinding.root.setOnClickListener {
+            onClick?.let {
+                it(data?.url!!)
+            }
+        }
     }
 
     override fun onCreateViewHolder(

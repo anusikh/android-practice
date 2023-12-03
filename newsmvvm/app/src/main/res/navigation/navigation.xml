@@ -18,6 +18,12 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.news_mvvm.ui.details.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 
 </navigation>
