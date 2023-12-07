@@ -30,7 +30,6 @@ class DetailsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        println(args.url!!)
         binding.webView.loadUrl(args.url!!)
     }
 
