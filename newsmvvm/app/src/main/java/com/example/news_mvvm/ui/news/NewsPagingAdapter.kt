@@ -25,7 +25,6 @@ class NewsPagingAdapter : PagingDataAdapter<Article, NewsPagingAdapter.MyViewHol
             override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
 
